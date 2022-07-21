@@ -1,0 +1,7 @@
+2022-07-21 13:07:01,468 [main] INFO Log4jdemo - Setup method is tarted
+2022-07-21 13:07:01,472 [main] INFO Log4jdemo - Setup method is progress
+2022-07-21 13:07:01,477 [main] INFO Log4jdemo - login is started
+2022-07-21 13:07:01,477 [main] INFO Log4jdemo - login is progress
+2022-07-21 13:07:01,478 [main] INFO Log4jdemo - login is completed
+2022-07-21 13:07:01,478 [main] INFO Log4jdemo - login is passed
+2022-07-21 13:07:01,481 [main] INFO Log4jdemo - logout is completed
