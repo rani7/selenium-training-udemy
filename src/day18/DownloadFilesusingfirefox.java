@@ -3,7 +3,9 @@ package day18;
 import java.io.File;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -18,7 +20,7 @@ public class DownloadFilesusingfirefox {
 		profile.setPreference("browser.download.manager.showWhenStarting", false);
 				
 		//download files in desired location
-		profile.setPreference("browser.download.dir","E:\\Downloadedfiles");
+		profile.setPreference("browser.download.dir","E:\\DownloadedFiles");
 		profile.setPreference("browser.download.folderList", 2); 
 		profile.setPreference("pdfjs.disabled", true); // only for pdf file
 		
@@ -26,7 +28,7 @@ public class DownloadFilesusingfirefox {
 		option.setProfile(profile);
 				
 		
-		System.setProperty("webdriver.gecko.driver","E:\\selenium\\geckodriver-v0.27.0-win64\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver","E:\\selenium\\geckodriver-v0.31.0-win64\\geckodriver.exe");
 		WebDriver driver=new FirefoxDriver(option);
 		
 		driver.get("http://demo.automationtesting.in/FileDownload.html");
@@ -35,12 +37,16 @@ public class DownloadFilesusingfirefox {
 		
 		//download text file
 		driver.findElement(By.id("textbox")).sendKeys("testing txt file download");
-		driver.findElement(By.id("createTxt")).click();
-		driver.findElement(By.id("link-to-download")).click();
+		WebElement crtTxt=driver.findElement(By.id("createTxt"));
+		JavascriptExecutor js1 = (JavascriptExecutor)driver;
+		js1.executeScript("arguments[0].click();", crtTxt);
+		WebElement dwlink=driver.findElement(By.id("link-to-download"));
+		JavascriptExecutor js2 = (JavascriptExecutor)driver;
+		js2.executeScript("arguments[0].click();", dwlink);
 		
 		Thread.sleep(5000);
 		
-		if(isFileExist("D://Downloadedfiles/info.txt"))
+		if(isFileExist("E://DownloadedFiles/info.txt"))
 		{
 			System.out.println(" file exists");
 		}
@@ -51,12 +57,16 @@ public class DownloadFilesusingfirefox {
 		
 		//download pdf file
 		driver.findElement(By.id("pdfbox")).sendKeys("testing pdf downlaod");
-		driver.findElement(By.id("createPdf")).click();
-		driver.findElement(By.id("pdf-link-to-download")).click();
+		WebElement crtPdf=driver.findElement(By.id("createPdf"));
+		JavascriptExecutor js3 = (JavascriptExecutor)driver;
+		js3.executeScript("arguments[0].click();", crtPdf);
+		WebElement dwPdflink=driver.findElement(By.id("pdf-link-to-download"));
+		JavascriptExecutor js4 = (JavascriptExecutor)driver;
+		js4.executeScript("arguments[0].click();", dwPdflink);
 		
 		Thread.sleep(5000);
 		
-		if(isFileExist("E://Downloadedfiles/info.pdf"))
+		if(isFileExist("E://DownloadedFiles/info.pdf"))
 		{
 			System.out.println(" file exists");
 		}

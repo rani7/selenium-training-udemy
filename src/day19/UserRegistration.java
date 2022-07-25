@@ -1,6 +1,6 @@
 package day19;
 
-// change website
+// change website - no demo website available
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

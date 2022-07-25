@@ -23,7 +23,7 @@ public class DownloadFilesusingchrome {
 
 		chromePrefs.put("profile.default_content_settings.popups", 0);
 		chromePrefs.put("download.prompt_for_download", "false");
-		chromePrefs.put("download.default_directory","D:\\Downloadedfiles"); //configure path
+		chromePrefs.put("download.default_directory","E:\\DownloadedFiles"); //configure path
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
@@ -51,7 +51,7 @@ public class DownloadFilesusingchrome {
 		
 		Thread.sleep(5000);
 		
-		if(isFileExist("E://selenium//Downloadedfiles/info.txt"))
+		if(isFileExist("E://DownloadedFiles/info.txt"))
 		{
 			System.out.println(" file exists");
 		}
@@ -69,7 +69,7 @@ public class DownloadFilesusingchrome {
 		
 		Thread.sleep(5000);
 		
-		if(isFileExist("E://selenium//Downloadedfiles/info.pdf"))
+		if(isFileExist("E://DownloadedFiles/info.pdf"))
 		{
 			System.out.println(" file exists");
 		}

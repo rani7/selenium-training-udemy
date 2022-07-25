@@ -14,7 +14,7 @@ public class LoginTestHashMap {
 	{
 		HashMap <String,String> hm=new HashMap<String,String>();
 		
-		hm.put("x", "mercury@mercury");
+		hm.put("x", "pavanoltraining@Test@selenium123");
 		hm.put("y", "mercury1@mercury1");
 		hm.put("z", "mercury2@mercury2");
 		
@@ -27,17 +27,19 @@ public class LoginTestHashMap {
 		System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
-		driver.get("http://newtours.demoaut.com/");
+        driver.get("http://practice.automationtesting.in/"); //Open URL  
 		
-		String credentials=logindata().get("y");
+		driver.findElement(By.linkText("My Account")).click();
+		
+		String credentials=logindata().get("x");
 		
 		String uarr[]=credentials.split("@"); // splitting
 		
-		driver.findElement(By.name("userName")).sendKeys(uarr[0]);
+		driver.findElement(By.name("username")).sendKeys(uarr[0]);
 		driver.findElement(By.name("password")).sendKeys(uarr[1]);
 		driver.findElement(By.name("login")).click();
 		
-		if (driver.getTitle().equals("Find a Flight: Mercury Tours:")) {
+		if (driver.getTitle().contains("Automation")) {
 			System.out.println("Test Passed");
 
 		} else {
@@ -45,7 +47,7 @@ public class LoginTestHashMap {
 
 		}
 		
-		driver.findElement(By.linkText("Home")).click();
+		driver.close();
 		
 		
 	}

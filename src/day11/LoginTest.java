@@ -14,21 +14,23 @@ public class LoginTest {
 		WebDriver driver=new ChromeDriver(); //ChromeDriver driver=new ChromeDriver(); // Invokes the chrome browser
 	
 		
-		driver.get("http://newtours.demoaut.com/"); //Open URL  http://opensource.demo.orangehrmlive.com
+		driver.get("http://practice.automationtesting.in/"); //Open URL  
 		
-		driver.findElement(By.name("userName")).sendKeys("mercury"); //Enter username  (Admin).
+		driver.findElement(By.linkText("My Account")).click();
 		
-		driver.findElement(By.name("password")).sendKeys("mercury"); //Enter password  (admin).
+		driver.findElement(By.id("username")).sendKeys("pavanoltraining"); //Enter username  
+		
+		driver.findElement(By.id("password")).sendKeys("Test@selenium123"); //Enter password  
 		
 		driver.findElement(By.name("login")).click();   //Click on Submit.
 		
 		Thread.sleep(5000);
 		
-		String actTitle="Find a Flight: Mercury Tours:";
+		String actTitle="pavanoltraining";
 		String expTitle=driver.getTitle();
 		
 		//Verify title of the page
-				if(expTitle.equals(actTitle))
+				if(expTitle.contains(actTitle))
 				{
 					System.out.println("Login test passed");
 				}

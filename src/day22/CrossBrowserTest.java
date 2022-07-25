@@ -24,7 +24,7 @@ public class CrossBrowserTest {
 		}
 		else if(br.equals("firefox"))
 			{
-				System.setProperty("webdriver.gecko.driver","E://selenium/geckodriver-v0.19.1-win64/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver","E://selenium//geckodriver-v0.31.0-win64/geckodriver.exe");
 				driver=new FirefoxDriver();
 			}
 		else if(br.equals("ie"))
